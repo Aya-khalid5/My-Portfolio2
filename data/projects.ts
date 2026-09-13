@@ -89,7 +89,7 @@ export const projects: Project[] = [
       { src: "/projects/sales-inventory-supply.png", caption: "Inventory & Supply Chain" },
       { src: "/projects/sales-datamodel.png", caption: "Data Model" },
     ],
-    githubUrl: "",
+    githubUrl: "https://github.com/Aya-khalid5/Sales-Analysis2.git",
     projectUrl: "https://app.powerbi.com/links/Crlp_L_-UM?ctid=ff4a48d6-4b5e-4fd3-8266-7eafc3e6e23e&pbi_source=linkShare",
   },
   {
