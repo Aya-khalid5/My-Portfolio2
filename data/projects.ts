@@ -22,9 +22,6 @@ export interface Project {
   projectUrl: string;
 }
 
-// IMPORTANT: githubUrl and projectUrl are placeholders ("#") until the
-// real links are added. Where a project has no screenshots yet, the
-// ProjectImage component shows a professional placeholder instead.
 export const projects: Project[] = [
   {
     slug: "social-media-performance-analytics-dashboard",
@@ -58,7 +55,7 @@ export const projects: Project[] = [
       { src: "/projects/social-media-details.png", caption: "Post-Level Detail" },
       { src: "/projects/social-media-datamodel.png", caption: "Data Model — Star Schema" },
     ],
- 
+    githubUrl: "",
     projectUrl: "https://app.powerbi.com/links/SlgmLg2pm5?ctid=ff4a48d6-4b5e-4fd3-8266-7eafc3e6e23e&pbi_source=linkShare",
   },
   {
@@ -92,7 +89,7 @@ export const projects: Project[] = [
       { src: "/projects/sales-inventory-supply.png", caption: "Inventory & Supply Chain" },
       { src: "/projects/sales-datamodel.png", caption: "Data Model" },
     ],
-    githubUrl: "#",
+    githubUrl: "",
     projectUrl: "https://app.powerbi.com/links/Crlp_L_-UM?ctid=ff4a48d6-4b5e-4fd3-8266-7eafc3e6e23e&pbi_source=linkShare",
   },
   {
@@ -120,8 +117,8 @@ export const projects: Project[] = [
       { src: "/projects/digital-marketing-channel.png", caption: "Channel Performance" },
       { src: "/projects/digital-marketing-campaign.png", caption: "Campaign Performance" },
     ],
-    githubUrl: "#",
-    projectUrl: "#",
+    githubUrl: "",
+    projectUrl: "",
   },
   {
     slug: "global-food-waste-economic-impact",
@@ -179,7 +176,7 @@ export const projects: Project[] = [
       { src: "/projects/smart-recruitment-accuracy.png", caption: "Model Accuracy Comparison" },
     ],
     githubUrl: "https://github.com/Aya-khalid5/SMART-RECRUITMENT-ASSISTANT_ITI",
-    projectUrl: "#",
+    projectUrl: "",
   },
   {
     slug: "asd-screening-project",
@@ -210,7 +207,7 @@ export const projects: Project[] = [
       { src: "/projects/asd-screening-models.png", caption: "Model Comparison" },
     ],
     githubUrl: "https://github.com/Aya-khalid5/Final_ASD",
-    projectUrl: "#",
+    projectUrl: "",
   },
   {
     slug: "sales-analysis-report",
@@ -244,7 +241,7 @@ export const projects: Project[] = [
       { src: "/projects/sales-analysis-datamodel.png", caption: "Data Model" },
     ],
     githubUrl: "https://github.com/Aya-khalid5/Sales-Analysis",
-    projectUrl: "#",
+    projectUrl: "",
   },
 ];
 
