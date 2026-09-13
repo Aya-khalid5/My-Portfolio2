@@ -35,8 +35,8 @@ export default function ProjectPage({ params }: ProjectPageProps) {
     notFound();
   }
 
-  const hasRealGithub = project.githubUrl !== "#";
-  const hasRealProjectUrl = project.projectUrl !== "#";
+  const hasRealGithub = project.githubUrl !== "";
+  const hasRealProjectUrl = project.projectUrl !== "";
 
   return (
     <article className="py-16 sm:py-24">
