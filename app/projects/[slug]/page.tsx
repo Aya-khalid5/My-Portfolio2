@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Github, ExternalLink } from "lucide-react";
+
 import { projects, getProjectBySlug } from "@/data/projects";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
@@ -14,14 +15,22 @@ interface ProjectPageProps {
 }
 
 export function generateStaticParams() {
-  return projects.map((project) => ({ slug: project.slug }));
+  return projects.map((project) => ({
+    slug: project.slug,
+  }));
 }
 
-export function generateMetadata({ params }: ProjectPageProps): Metadata {
+export function generateMetadata({
+  params,
+}: ProjectPageProps): Metadata {
   const project = getProjectBySlug(params.slug);
+
   if (!project) {
-    return { title: `Project not found | ${SITE.name}` };
+    return {
+      title: `Project not found | ${SITE.name}`,
+    };
   }
+
   return {
     title: `${project.title} | ${SITE.name}`,
     description: project.summary,
@@ -41,43 +50,58 @@ export default function ProjectPage({ params }: ProjectPageProps) {
   return (
     <article className="py-16 sm:py-24">
       <div className="mx-auto max-w-content px-6">
+
+        {/* Back to Projects */}
         <Link
           href="/projects"
           className="focus-ring link-draw inline-flex items-center gap-1.5 text-sm font-medium text-ink-soft hover:text-ink"
         >
-          <ArrowLeft size={15} /> Back to projects
+          <ArrowLeft size={15} />
+          Back to projects
         </Link>
 
+        {/* Project Header */}
         <div className="mt-8 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
+          
+          {/* Project Info */}
           <div>
             <h1 className="font-display text-3xl font-medium text-ink sm:text-4xl">
               {project.title}
             </h1>
+
             <p className="mt-4 max-w-xl text-base leading-relaxed text-ink-soft">
               {project.summary}
             </p>
 
+            {/* Tools */}
             <div className="mt-6 flex flex-wrap gap-2">
               {project.tools.map((tool) => (
                 <Badge key={tool}>{tool}</Badge>
               ))}
             </div>
 
+            {/* Dataset Size */}
             {project.datasetSize && (
               <p className="mt-6 text-sm text-ink-soft">
-                <span className="font-medium text-ink">Dataset: </span>
+                <span className="font-medium text-ink">
+                  Dataset:{" "}
+                </span>
                 {project.datasetSize}
               </p>
             )}
 
+            {/* Project Links */}
             <div className="mt-8 flex flex-wrap gap-3">
-              {hasRealGithub ? (
-                <Button href={project.githubUrl} icon={<Github size={16} />}>
+              
+              {hasRealGithub && (
+                <Button
+                  href={project.githubUrl}
+                  icon={<Github size={16} />}
+                >
                   View on GitHub
                 </Button>
-              ) : (
-               
               )}
+
               {hasRealProjectUrl && (
                 <Button
                   href={project.projectUrl}
@@ -87,15 +111,21 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                   Live Demo
                 </Button>
               )}
+
             </div>
           </div>
 
+          {/* Main Project Image */}
           <figure>
             <ProjectImage
               src={project.images[0]?.src ?? ""}
-              alt={project.images[0]?.caption ?? `${project.title} screenshot`}
+              alt={
+                project.images[0]?.caption ??
+                `${project.title} screenshot`
+              }
               className="h-72 w-full rounded-2xl border border-border object-cover lg:h-full"
             />
+
             {project.images[0] && (
               <figcaption className="mt-2 text-xs text-ink-soft">
                 {project.images[0].caption}
@@ -104,11 +134,13 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           </figure>
         </div>
 
+        {/* More Screenshots */}
         {project.images.length > 1 && (
           <div className="mt-14 border-t border-border pt-10">
             <h2 className="font-display text-lg font-medium text-ink">
               More screenshots
             </h2>
+
             <div className="mt-6 grid gap-6 sm:grid-cols-2">
               {project.images.slice(1).map((shot) => (
                 <figure key={shot.src}>
@@ -117,6 +149,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                     alt={shot.caption}
                     className="h-56 w-full rounded-2xl border border-border object-cover"
                   />
+
                   <figcaption className="mt-2 text-xs text-ink-soft">
                     {shot.caption}
                   </figcaption>
@@ -126,24 +159,31 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           </div>
         )}
 
+        {/* Key Metrics */}
         {project.metrics.length > 0 && (
           <div className="mt-16 border-t border-border pt-10">
             <h2 className="font-display text-lg font-medium text-ink">
               Key metrics
             </h2>
+
             <div className="mt-6 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
               {project.metrics.map((metric) => (
-                <ProjectMetric key={metric.label} {...metric} />
+                <ProjectMetric
+                  key={metric.label}
+                  {...metric}
+                />
               ))}
             </div>
           </div>
         )}
 
+        {/* Key Insights */}
         {project.insights && project.insights.length > 0 && (
           <div className="mt-14 border-t border-border pt-10">
             <h2 className="font-display text-lg font-medium text-ink">
               Key insights
             </h2>
+
             <ul className="mt-5 space-y-2.5">
               {project.insights.map((insight) => (
                 <li
@@ -158,16 +198,19 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           </div>
         )}
 
+        {/* Main Work */}
         <div className="mt-14 border-t border-border pt-10">
           <h2 className="font-display text-lg font-medium text-ink">
             Main work
           </h2>
+
           <div className="mt-5 flex flex-wrap gap-2">
             {project.mainWork.map((item) => (
               <Badge key={item}>{item}</Badge>
             ))}
           </div>
         </div>
+
       </div>
     </article>
   );
