@@ -14,6 +14,14 @@ export default function Education() {
             <p className="mt-1 text-sm text-ink-soft">
               Faculty of Computers &amp; Artificial Intelligence
             </p>
+            </div>
+          <p className="text-sm font-medium text-clay-dark">
+           3.72 / 4.0 GPA
+          </p>
+           <p className="text-sm font-medium text-clay-dark">
+           Excellent 
+          </p>
+        </div>
       </div>
     </section>
   );
