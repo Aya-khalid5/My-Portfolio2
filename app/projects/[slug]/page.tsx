@@ -76,9 +76,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                   View on GitHub
                 </Button>
               ) : (
-                <span className="focus-ring inline-flex items-center gap-2 rounded-full border border-dashed border-border px-5 py-3 text-sm text-ink-soft">
-                  [ADD PROJECT LINK]
-                </span>
+               
               )}
               {hasRealProjectUrl && (
                 <Button
