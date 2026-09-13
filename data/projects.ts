@@ -58,7 +58,7 @@ export const projects: Project[] = [
       { src: "/projects/social-media-details.png", caption: "Post-Level Detail" },
       { src: "/projects/social-media-datamodel.png", caption: "Data Model — Star Schema" },
     ],
-    githubUrl: "#",
+ 
     projectUrl: "https://app.powerbi.com/links/SlgmLg2pm5?ctid=ff4a48d6-4b5e-4fd3-8266-7eafc3e6e23e&pbi_source=linkShare",
   },
   {
