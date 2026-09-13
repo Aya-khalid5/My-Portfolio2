@@ -14,11 +14,6 @@ export default function Education() {
             <p className="mt-1 text-sm text-ink-soft">
               Faculty of Computers &amp; Artificial Intelligence
             </p>
-          </div>
-          <p className="text-sm font-medium text-clay-dark">
-            Expected graduation 2027
-          </p>
-        </div>
       </div>
     </section>
   );
